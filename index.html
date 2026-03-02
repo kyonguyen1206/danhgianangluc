@@ -24,29 +24,41 @@
         @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
         .matrix-item { border-bottom: 1px solid rgba(255,255,255,0.03); padding-bottom: 0.75rem; }
         .chart-container { position: relative; width: 100%; height: 400px; max-width: 700px; margin: 0 auto; }
-        /* No SVG icons - using Unicode characters */
+        .header-contact:hover { color: white; }
     </style>
 </head>
 <body class="antialiased selection:bg-red-500/30 pb-20">
 
-    <!-- NAVIGATION -->
+    <!-- NAVIGATION WITH TOP CONTACT INFO -->
     <nav class="bg-slate-950/95 backdrop-blur-md border-b border-white/5 p-6 sticky top-0 z-50">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center gap-4">
-                <div class="bg-red-600 text-white font-black px-5 py-2 rounded-lg text-3xl tracking-tighter shadow-lg shadow-red-900/30 text-center">C</div>
+                <div class="bg-red-600 text-white font-black px-5 py-2 rounded-lg text-3xl tracking-tighter shadow-lg shadow-red-900/30">C</div>
                 <div>
                     <h1 class="text-xl font-black uppercase tracking-widest text-white leading-none italic">California <span class="text-white">Fitness & Yoga</span></h1>
                     <p id="txt-slogan" class="text-[10px] text-slate-400 uppercase font-bold tracking-[0.4em] mt-2 italic">One life Live Well</p>
                 </div>
             </div>
-            <div class="flex items-center gap-6">
-                <div class="flex bg-white/5 p-1 rounded-full border border-white/10">
-                    <button onclick="changeLang('vi')" id="btn-vi" class="lang-btn active">VN</button>
-                    <button onclick="changeLang('en')" id="btn-en" class="lang-btn">EN</button>
+            
+            <div class="flex items-center gap-8">
+                <!-- CREATED BY INFO (NEW IN HEADER) -->
+                <div class="hidden sm:flex flex-col items-end border-r border-white/10 pr-6">
+                    <div class="flex items-center gap-2">
+                        <span class="text-[8px] font-black text-slate-500 uppercase tracking-widest">Created by</span>
+                        <span class="text-[10px] font-black text-red-600 uppercase tracking-tighter">Kyo Nguyen</span>
+                    </div>
+                    <a href="tel:0933911939" class="header-contact text-[10px] font-bold text-slate-400 transition-colors mt-0.5">📞 0933911939</a>
                 </div>
-                <div class="hidden lg:flex flex-col items-end">
-                    <span id="txt-framework" class="text-[9px] font-black text-slate-500 uppercase tracking-widest text-white/50">Performance Dashboard v6.5</span>
-                    <span id="txt-weight" class="text-[9px] font-black text-red-500 uppercase font-bold tracking-tighter">Perf: 70% | Matrix: 30%</span>
+
+                <div class="flex items-center gap-6">
+                    <div class="flex bg-white/5 p-1 rounded-full border border-white/10 text-white">
+                        <button onclick="changeLang('vi')" id="btn-vi" class="lang-btn active">VN</button>
+                        <button onclick="changeLang('en')" id="btn-en" class="lang-btn">EN</button>
+                    </div>
+                    <div class="hidden lg:flex flex-col items-end">
+                        <span id="txt-framework" class="text-[9px] font-black text-slate-500 uppercase tracking-widest text-white/40">Talent Framework v6.8 Pro</span>
+                        <span id="txt-weight" class="text-[9px] font-black text-red-500 uppercase font-bold tracking-tighter">Perf: 70% | Matrix: 30%</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -54,43 +66,42 @@
 
     <main class="container mx-auto px-4 py-12 space-y-12">
 
-        <!-- POSITION CONFIGURATION -->
+        <!-- POSITION SELECTOR -->
         <section class="glass-card p-8 space-y-6 border-b-4 border-indigo-500">
             <div class="flex items-center gap-3 text-white">
                 <span class="text-xl">👥</span>
                 <h3 id="txt-select-role" class="text-lg font-black uppercase tracking-tight">Vị Trí Đánh Giá</h3>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div id="tab-BM" onclick="selectRole('BM')" class="role-tab active p-6 rounded-2xl flex flex-col items-center gap-2">
+                <div id="tab-BM" onclick="selectRole('BM')" class="role-tab active p-6 rounded-2xl flex flex-col items-center gap-2 text-white/50">
                     <span class="text-2xl">🏢</span>
                     <span class="font-black text-[11px] uppercase text-center">Business Manager</span>
                 </div>
-                <div id="tab-RM" onclick="selectRole('RM')" class="role-tab p-6 rounded-2xl flex flex-col items-center gap-2">
+                <div id="tab-RM" onclick="selectRole('RM')" class="role-tab p-6 rounded-2xl flex flex-col items-center gap-2 text-white/50">
                     <span class="text-2xl">🏆</span>
                     <span class="font-black text-[11px] uppercase text-center tracking-tighter">Relationship Manager</span>
                 </div>
-                <div id="tab-SUP" onclick="selectRole('SUP')" class="role-tab p-6 rounded-2xl flex flex-col items-center gap-2">
+                <div id="tab-SUP" onclick="selectRole('SUP')" class="role-tab p-6 rounded-2xl flex flex-col items-center gap-2 text-white/50">
                     <span class="text-2xl">⚡</span>
                     <span class="font-black text-[11px] uppercase text-center">Supervisor</span>
                 </div>
-                <div id="tab-WA" onclick="selectRole('WA')" class="role-tab p-6 rounded-2xl flex flex-col items-center gap-2">
+                <div id="tab-WA" onclick="selectRole('WA')" class="role-tab p-6 rounded-2xl flex flex-col items-center gap-2 text-white/50">
                     <span class="text-2xl">💪</span>
                     <span class="font-black text-[11px] uppercase text-center">Wellness Advisor</span>
                 </div>
             </div>
         </section>
         
-        <!-- SECTION I: SALES & P&L PERFORMANCE (70%) -->
+        <!-- SECTION I: PERFORMANCE (70%) -->
         <div class="glass-card p-8 space-y-8 border-l-4 border-red-600">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-white">
                 <h3 id="txt-sec1-title" class="category-header text-xl">I. Hiệu Suất Kinh Doanh & P&L (70%)</h3>
                 <span id="txt-sec1-sub" class="text-[9px] font-black text-slate-500 uppercase italic">Actual Achievement vs Target KPI</span>
             </div>
             
             <div id="kpiGrid" class="grid grid-cols-1 xl:grid-cols-2 gap-12">
-                <!-- Group 1: Primary Metrics -->
                 <div class="space-y-6">
-                    <p id="txt-perf-group-1" class="text-sm font-bold text-red-500 uppercase flex items-center gap-2 italic underline underline-offset-4 decoration-red-600/30">👤 Club Metrics</p>
+                    <p id="txt-perf-group-1" class="text-sm font-bold text-red-500 uppercase flex items-center gap-2 italic">👤 Club Metrics</p>
                     <div class="space-y-2">
                         <div class="grid grid-cols-3 gap-4 text-[8px] font-black text-slate-500 uppercase px-1">
                             <span id="txt-h-label-1">Chỉ số</span><span id="txt-h-target-1">Target</span><span id="txt-h-actual-1">Actual</span>
@@ -99,9 +110,8 @@
                     </div>
                 </div>
 
-                <!-- Group 2: Secondary / P&L Metrics -->
                 <div class="space-y-6">
-                    <p id="txt-perf-group-2" class="text-sm font-bold text-blue-500 uppercase flex items-center gap-2 italic underline underline-offset-4 decoration-blue-600/30">📊 P&L & Service Metrics</p>
+                    <p id="txt-perf-group-2" class="text-sm font-bold text-blue-500 uppercase flex items-center gap-2 italic">📊 Club P&L & Conversions</p>
                     <div class="space-y-2">
                         <div class="grid grid-cols-3 gap-4 text-[8px] font-black text-slate-500 uppercase px-1">
                             <span id="txt-h-label-2">Chỉ số</span><span id="txt-h-target-2">Target</span><span id="txt-h-actual-2">Actual</span>
@@ -112,11 +122,11 @@
             </div>
         </div>
 
-        <!-- SECTION II: COMPETENCY MATRIX (30%) -->
+        <!-- SECTION II: MATRIX (30%) -->
         <div class="glass-card p-8 space-y-10">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-white">
                 <h3 id="txt-sec2-title" class="category-header text-xl">II. Ma Trận Năng Lực & Thái Độ (30%)</h3>
-                <div class="bg-slate-900 border border-white/5 px-6 py-2 rounded-2xl flex items-center gap-4 shadow-inner text-white">
+                <div class="bg-slate-900 border border-white/5 px-6 py-2 rounded-2xl flex items-center gap-4 shadow-inner">
                     <span id="txt-matrix-sum-label" class="text-[9px] font-black text-slate-500 uppercase tracking-widest leading-none text-right">Matrix<br>Point Sum</span>
                     <span id="matrixTotalScore" class="text-3xl font-black text-indigo-400">0</span>
                     <span class="text-slate-600 font-bold">/ 200</span>
@@ -134,27 +144,27 @@
             </div>
         </div>
 
-        <!-- SECTION III: ANALYTICS & VISUALIZATION -->
+        <!-- SECTION III: ANALYTICS -->
         <section id="vizSection" class="hidden space-y-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Score Circle -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 text-white">
                 <div class="glass-card p-10 flex flex-col items-center justify-center text-center space-y-6 relative overflow-hidden">
                     <div class="absolute top-0 left-0 w-2 h-full bg-red-600"></div>
                     <h4 id="txt-final-score-title" class="text-[10px] font-black uppercase text-slate-500 tracking-widest italic">Điểm Năng Lực Tổng Hợp</h4>
                     <div class="relative w-48 h-48 flex items-center justify-center">
-                        <div class="absolute inset-0 rounded-full border-8 border-white/5"></div>
-                        <div id="scoreBorder" class="absolute inset-0 rounded-full border-8 border-red-600 border-t-transparent border-l-transparent transition-all duration-1000 rotate-45"></div>
-                        <div class="flex flex-col items-center justify-center text-white">
+                        <svg class="w-full h-full transform -rotate-90">
+                            <circle cx="96" cy="96" r="85" stroke="currentColor" stroke-width="14" fill="transparent" class="text-white/5" />
+                            <circle id="scoreRing" cx="96" cy="96" r="85" stroke="currentColor" stroke-width="14" fill="transparent" stroke-dasharray="534" stroke-dashoffset="534" class="text-red-600 transition-all duration-1000 ease-out" />
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
                             <span id="finalScoreDisplay" class="text-6xl font-black italic">--</span>
                             <span id="rankBadge" class="bg-red-600 text-white px-4 py-1 rounded-full text-[10px] font-black uppercase mt-2 shadow-lg tracking-widest">RANK: --</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- AI Qualitative Feedback -->
                 <div class="lg:col-span-2 glass-card p-8 bg-indigo-500/5 border-l-4 border-indigo-500 flex flex-col">
                     <h4 class="text-lg font-black text-indigo-400 uppercase tracking-tighter mb-6 flex items-center gap-2">
-                        <span>⚡</span> <span id="txt-ai-agent-title">Chiến Lược Cố Vấn (Gemini AI)</span>
+                        <span>⚡</span> <span id="txt-ai-agent-title">Chiến Lược Cố Vấn (Gemini AI Agent)</span>
                     </h4>
                     <div id="aiLoading" class="hidden space-y-4">
                         <div class="h-4 w-3/4 shimmer rounded"></div>
@@ -164,18 +174,17 @@
                 </div>
             </div>
 
-            <!-- Radar Chart -->
             <div class="glass-card p-8">
-                <h4 id="txt-radar-title" class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-8 text-center italic">Radar đồ thị phân tích khoảng cách năng lực thực tế</h4>
+                <h4 id="txt-radar-title" class="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-8 text-center italic">Radar đồ thị phân tích năng lực đa chiều</h4>
                 <div class="chart-container">
                     <canvas id="competencyRadar"></canvas>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION IV: DIRECTOR CONCLUSION -->
-        <section id="directorSection" class="hidden glass-card p-8 border-t-4 border-white space-y-8">
-            <h3 class="text-xl font-black uppercase flex items-center gap-3 italic text-white">
+        <!-- SECTION IV: BOD -->
+        <section id="directorSection" class="hidden glass-card p-8 border-t-4 border-white space-y-8 text-white">
+            <h3 class="text-xl font-black uppercase flex items-center gap-3 italic">
                 <span class="text-2xl text-red-600">🖋️</span> <span id="txt-bod-title">Phê Duyệt Của Business Director</span>
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -194,8 +203,17 @@
 
     </main>
 
-    <footer class="container mx-auto px-4 py-12 text-center text-slate-700 text-[10px] font-bold uppercase tracking-[0.4em]">
-        One life Live Well • California Fitness & Yoga • Internal Talent Framework v6.5 Pro
+    <!-- FOOTER -->
+    <footer class="container mx-auto px-4 py-12 text-center space-y-4 border-t border-white/5 mt-20">
+        <p class="text-slate-600 text-[10px] font-bold uppercase tracking-[0.4em]">One life Live Well • California Fitness & Yoga • Strategic Talent Pro</p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 text-slate-500 text-[9px] font-black uppercase tracking-widest opacity-80">
+            <span>Created by Kyo Nguyen</span>
+            <span class="hidden sm:inline">|</span>
+            <a href="tel:0933911939" class="footer-link flex items-center gap-2 hover:text-red-600 transition-colors">
+                <span>📞 Contact: 0933911939</span>
+            </a>
+        </div>
+        <p class="text-slate-700 text-[8px] font-bold uppercase">© 2024 All Rights Reserved • v6.8</p>
     </footer>
 
     <script>
@@ -207,17 +225,17 @@
         const translations = {
             vi: {
                 slogan: "One life Live Well",
-                framework: "HR Talent Framework v6.5 Pro",
+                framework: "HR Talent Framework v6.8 Pro",
                 weight: "Performance: 70% | Matrix: 30%",
                 selectRole: "Vị Trí Đánh Giá",
                 sec1Title: "I. Hiệu Suất Kinh Doanh & P&L (70%)",
-                sec1Sub: "Số liệu Actual vs Target KPI",
+                sec1Sub: "Số liệu Actual Achievement vs Target KPI",
                 sec2Title: "II. Ma Trận Năng Lực & Thái Độ (30%)",
                 matrixSum: "Tổng điểm Ma trận",
                 aiBtn: "✨ CHẠY PHÂN TÍCH TỔNG HỢP AI",
                 finalScore: "Điểm Năng Lực Tổng Hợp",
                 aiAgent: "Chiến Lược Cố Vấn (Gemini AI Agent)",
-                radarTitle: "Radar đồ thị phân tích khoảng cách năng lực",
+                radarTitle: "Radar đồ thị phân tích năng lực đa chiều",
                 bodTitle: "Phê Duyệt Của Business Director",
                 noteLabel: "Ghi chú & Hướng dẫn thực thi",
                 print: "Xuất Hồ Sơ / PDF",
@@ -270,7 +288,7 @@
             },
             en: {
                 slogan: "One life Live Well",
-                framework: "HR Talent Framework v6.5 Pro",
+                framework: "HR Talent Framework v6.8 Pro",
                 weight: "Performance: 70% | Matrix: 30%",
                 selectRole: "Assessment Position",
                 sec1Title: "I. Sales Performance & P&L (70%)",
@@ -361,9 +379,9 @@
             dBox.innerHTML = `<label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">${t.hrDecision}</label>`;
             t.decisions.forEach(d => {
                 dBox.innerHTML += `
-                    <label class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition cursor-pointer border border-transparent hover:border-white/10">
+                    <label class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition cursor-pointer border border-transparent hover:border-white/10 text-white">
                         <input type="radio" name="dec" class="w-4 h-4 accent-red-600"> 
-                        <span class="text-sm font-bold text-white tracking-tight">${d}</span>
+                        <span class="text-sm font-bold">${d}</span>
                     </label>
                 `;
             });
@@ -377,8 +395,13 @@
 
         function selectRole(role) {
             currentRole = role;
-            document.querySelectorAll('.role-tab').forEach(tab => tab.classList.remove('active'));
-            document.getElementById(`tab-${role}`).classList.add('active');
+            document.querySelectorAll('.role-tab').forEach(tab => {
+                tab.classList.remove('active');
+                tab.classList.add('text-white/50');
+            });
+            const activeTab = document.getElementById(`tab-${role}`);
+            activeTab.classList.add('active');
+            activeTab.classList.remove('text-white/50');
             renderPerformanceGrid();
             renderMatrix();
         }
@@ -483,6 +506,7 @@
             const viz = document.getElementById('vizSection');
             const director = document.getElementById('directorSection');
             const scoreDisplay = document.getElementById('finalScoreDisplay');
+            const ring = document.getElementById('scoreRing');
             const rankBadge = document.getElementById('rankBadge');
 
             viz.classList.remove('hidden');
@@ -521,22 +545,23 @@
             finalScore = Math.min(100, finalScore);
 
             scoreDisplay.innerText = finalScore;
+            ring.style.strokeDashoffset = 534 - (finalScore / 100) * 534;
             
             updateRadar(pAchAvg * 10, tAchTotal * 10);
 
             const prompt = `
             Context: HR Director at California Fitness & Yoga. Language: ${lang === 'vi' ? 'Tiếng Việt' : 'English'}.
-            Role Assessment: ${currentRole}.
-            Performance Stats: ${Math.round(pAchAvg*100)}% L1 (Primary) achievement, ${currentRole === 'WA' ? 'N/A' : Math.round(tAchTotal*100) + '% L2 (P&L/Team) achievement'}.
-            Matrix Points: ${matrixPoints}/200. Focus on Category 4: Integrity & Alignment.
-            Total Weighted Score: ${finalScore}/100.
+            Profile: ${currentRole}. 
+            Weight: Performance 70% (L1 achievement: ${Math.round(pAchAvg*100)}%, L2: ${currentRole === 'WA' ? 'N/A' : Math.round(tAchTotal*100) + '%'}), Matrix 30%.
+            Matrix Score: ${matrixPoints}/200. Focus: Category 4 Integrity & Alignment.
+            Total: ${finalScore}/100.
 
-            Request: Professional strategic review for the Business Director.
-            Return JSON format { "rank": "A/B/C/D", "integrityInsight": "...", "operationalAnalysis": "...", "actions": ["...","..."], "motto": "..." }
+            Instructions: Provide strategic feedback for the Business Director.
+            Return JSON: { "rank": "A/B/C/D", "integrityInsight": "...", "operationalAnalysis": "...", "actions": ["...","..."], "motto": "..." }
             `;
 
             try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                const response = await fetchWithRetry(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { responseMimeType: "application/json" } })
@@ -550,14 +575,14 @@
                 output.innerHTML = `
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="space-y-4">
-                            <p class="text-[10px] font-black text-indigo-400 uppercase tracking-widest italic">💎 Integrity & Culture Alignment</p>
+                            <p class="text-[10px] font-black text-indigo-400 uppercase tracking-widest italic">💎 Integrity & Alignment</p>
                             <p class="text-slate-300 leading-relaxed">${ai.integrityInsight}</p>
-                            <p class="text-[10px] font-black text-red-500 uppercase tracking-widest italic">📊 Strategic Operational Analysis</p>
+                            <p class="text-[10px] font-black text-red-500 uppercase tracking-widest italic">📊 Strategic Role Analysis</p>
                             <p class="text-slate-300">${ai.operationalAnalysis}</p>
                         </div>
                         <div class="space-y-4">
                             <div class="p-5 bg-white/5 rounded-2xl border border-white/5 shadow-2xl">
-                                <p class="text-[10px] font-black text-green-400 uppercase tracking-widest mb-3">🔥 Critical Growth Actions</p>
+                                <p class="text-[10px] font-black text-green-400 uppercase tracking-widest mb-3">🔥 Growth Actions</p>
                                 <ul class="list-disc list-inside text-xs space-y-2 text-slate-400">
                                     ${ai.actions.map(a => `<li>${a}</li>`).join('')}
                                 </ul>
@@ -570,12 +595,23 @@
                 `;
             } catch (err) {
                 loading.classList.add('hidden');
-                output.innerHTML = `<p class="text-red-400">Error: System connectivity issue. Check API configuration.</p>`;
+                output.innerHTML = `<p class="text-red-400 font-bold">Error: Connection issue or missing API key.</p>`;
             } finally {
                 btn.disabled = false;
                 btn.innerText = translations[lang].aiBtn;
                 viz.scrollIntoView({ behavior: 'smooth' });
             }
+        }
+
+        async function fetchWithRetry(url, opts, retries = 5, delay = 1000) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const res = await fetch(url, opts);
+                    if (res.ok) return res;
+                } catch (e) {}
+                await new Promise(r => setTimeout(r, delay * Math.pow(2, i)));
+            }
+            throw new Error("API Failure.");
         }
 
         function updateRadar(p, t) {
